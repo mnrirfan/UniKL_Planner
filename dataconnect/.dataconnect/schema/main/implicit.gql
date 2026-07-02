@@ -1,0 +1,26 @@
+extend type Enrollment {
+  """
+  ✨ Implicit foreign key field based on `Enrollment`.`course`. It must match the value of `Course`.`code`. See `@ref` for how to customize it.
+  """
+  courseCode: String! @fdc_generated(from: "Enrollment.course", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Enrollment`.`group`. It must match the value of `ScheduleGroup`.`id`. See `@ref` for how to customize it.
+  """
+  groupId: UUID @fdc_generated(from: "Enrollment.group", purpose: IMPLICIT_REF_FIELD)
+  """
+  ✨ Implicit foreign key field based on `Enrollment`.`student`. It must match the value of `Student`.`uid`. See `@ref` for how to customize it.
+  """
+  studentUid: String! @fdc_generated(from: "Enrollment.student", purpose: IMPLICIT_REF_FIELD)
+}
+extend type ScheduleGroup {
+  """
+  ✨ Implicit foreign key field based on `ScheduleGroup`.`course`. It must match the value of `Course`.`code`. See `@ref` for how to customize it.
+  """
+  courseCode: String! @fdc_generated(from: "ScheduleGroup.course", purpose: IMPLICIT_REF_FIELD)
+}
+extend type StudyTask {
+  """
+  ✨ Implicit foreign key field based on `StudyTask`.`student`. It must match the value of `Student`.`uid`. See `@ref` for how to customize it.
+  """
+  studentUid: String! @fdc_generated(from: "StudyTask.student", purpose: IMPLICIT_REF_FIELD)
+}

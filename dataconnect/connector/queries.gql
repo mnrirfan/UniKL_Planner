@@ -1,0 +1,136 @@
+# ============================================================
+# QUERIES — what the app READS from the database
+# Each query auto-generates a Kotlin function in the SDK
+# ============================================================
+
+# Get the current student's profile
+# Uses Firebase Auth UID to find which student is logged in
+query GetStudentProfile @auth(level: PUBLIC) {
+  student(key: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }) {
+    uid
+    studentId
+    name
+    programme
+    intake
+    currentSemester
+    totalCreditsRequired
+    institute
+    academicAdvisor
+    email
+  }
+}
+
+# Get all courses in the curriculum (everyone can see these)
+# Sorted by year, then semester, then course code
+query ListAllCourses @auth(level: PUBLIC) {
+  courses(orderBy: [{ year: ASC }, { semester: ASC }, { code: ASC }]) {
+    code
+    name
+    credits
+    category
+    year
+    semester
+    prerequisite
+    isOptional
+  }
+}
+
+# Get all schedule groups for a specific course
+# Used when student wants to see G1 vs G2 options
+query ListGroupsForCourse($courseCode: String!) @auth(level: PUBLIC) {
+  scheduleGroups(where: { course: { code: { eq: $courseCode } } }) {
+    id
+    groupCode
+    day
+    startTime
+    endTime
+    room
+    lecturer
+    semesterOffered
+    capacity
+    enrolled
+  }
+}
+
+query ListAllGroups @auth(level: PUBLIC) {
+  scheduleGroups(limit: 500) {
+    groupCode
+    day
+    startTime
+    endTime
+    room
+    lecturer
+    course {
+      code
+    }
+  }
+}
+# Get all of the current student's enrollments
+# Returns courses they've completed, are taking, or transferred
+query GetMyEnrollments @auth(level: PUBLIC) {
+  enrollments(where: { student: { uid: { eq: "vgA7UHMhF0boinz6BiUoKhCOYY93" } } }) {
+    id
+    status
+    creditGained
+    semesterTaken
+    grade
+    course {
+      code
+      name
+      credits
+      category
+      year
+      semester
+      prerequisite
+      isOptional
+    }
+    group {
+      id
+      groupCode
+      day
+      startTime
+      endTime
+      room
+      lecturer
+    }
+  }
+}
+
+# Get just this semester's courses (for timetable view)
+# Filters to only "ST" = currently taking
+query GetCurrentSemesterCourses @auth(level: PUBLIC) {
+  enrollments(where: {
+    student: { uid: { eq: "vgA7UHMhF0boinz6BiUoKhCOYY93" } },
+    status: { eq: "ST" }
+  }) {
+    id
+    course {
+      code
+      name
+      credits
+      category
+    }
+    group {
+      groupCode
+      day
+      startTime
+      endTime
+      room
+      lecturer
+    }
+  }
+}
+
+# Get the student's study tasks (assignments / to-do)
+query GetMyTasks @auth(level: PUBLIC) {
+  studyTasks(
+    where: { student: { uid: { eq: "vgA7UHMhF0boinz6BiUoKhCOYY93" } } },
+    orderBy: [{ isCompleted: ASC }, { createdAt: DESC }]
+  ) {
+    id
+    title
+    courseName
+    dueDate
+    isCompleted
+  }
+}

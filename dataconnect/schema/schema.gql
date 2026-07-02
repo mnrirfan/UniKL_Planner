@@ -1,0 +1,73 @@
+# ============================================================
+# UniKL Planner — Database Schema
+# Defines all tables in PostgreSQL.
+# ============================================================
+
+# Student profile — keyed by Firebase Auth UID
+# Each logged-in user becomes one row in this table.
+type Student @table(name: "students", key: ["uid"]) {
+  uid: String!                      # Firebase Auth UID (links to login)
+  studentId: String!                # e.g. "50222224092"
+  name: String!
+  programme: String!                # e.g. "B.Eng Tech (Automation and Robotics)"
+  intake: String!                   # e.g. "Sem 2023/2024-2"
+  currentSemester: Int!             # e.g. 9
+  totalCreditsRequired: Int!        # e.g. 140
+  institute: String!
+  academicAdvisor: String!
+  email: String!
+}
+
+# Course catalogue — all possible courses in the programme
+# Primary key is the course code itself (e.g. "FAB11203")
+type Course @table(name: "courses", key: ["code"]) {
+  code: String!                     # e.g. "FAB11203"  ← primary key
+  name: String!                     # e.g. "Automation Technology"
+  credits: Int!                     # 1..12
+  category: String!                 # CORE, MPU, UCS, FYP, INTRA, ELECTIVE
+  year: Int!                        # 1..4
+  semester: Int!                    # 1..8
+  prerequisite: String              # nullable — another course code
+  isOptional: Boolean! @default(value: false)
+}
+
+# Schedule groups — multiple groups (G1, G2) per course per semester
+# Each row links to a Course via foreign key
+type ScheduleGroup @table(name: "schedule_groups") {
+  id: UUID! @default(expr: "uuidV4()")
+  course: Course!                   # foreign key → Course table
+  groupCode: String!                # "G1", "G2"
+  day: String!                      # "Monday", "Tuesday", ...
+  startTime: String!                # "08:00"
+  endTime: String!                  # "10:00"
+  room: String!
+  lecturer: String!
+  semesterOffered: String!          # e.g. "MARCH 2026"
+  capacity: Int! @default(value: 40)
+  enrolled: Int! @default(value: 0)
+}
+
+# Enrollment — connects a student to a course they have/are/will take
+# This is the "join table" — most important table for AI scheduling
+type Enrollment @table(name: "enrollments") {
+  id: UUID! @default(expr: "uuidV4()")
+  student: Student!                 # foreign key → Student
+  course: Course!                   # foreign key → Course
+  group: ScheduleGroup              # nullable (CT has no group)
+  status: String!                   # PENDING, ST, PASS, CT
+  creditGained: Int @default(value: 0)
+  semesterTaken: String             # e.g. "MARCH 2024"
+  grade: String                     # nullable (future: A, B+, etc.)
+  enrolledAt: Timestamp! @default(expr: "request.time")
+}
+
+# Personal study tasks — to-do list for assignments
+type StudyTask @table(name: "study_tasks") {
+  id: UUID! @default(expr: "uuidV4()")
+  student: Student!                 # foreign key → Student
+  title: String!
+  courseName: String!
+  dueDate: String!
+  isCompleted: Boolean! @default(value: false)
+  createdAt: Timestamp! @default(expr: "request.time")
+}

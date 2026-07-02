@@ -1,0 +1,84 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="64dp"
+    android:height="64dp"
+    android:viewportWidth="64"
+    android:viewportHeight="64">
+
+    <!-- Navy background (rounded rect) -->
+    <path android:fillColor="#1A237E"
+        android:pathData="M2,2 h60 q4,0 4,4 v52 q0,4 -4,4 h-60 q-4,0 -4,-4 v-52 q0,-4 4,-4 z"/>
+    <path android:fillColor="#1E2D90"
+        android:pathData="M2,62L62,2L62,62Z"/>
+
+    <!-- Antenna tip -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M30,4 h4 q1,0 1,1 v4 h-6 v-4 q0,-1 1,-1 z"/>
+    <!-- Antenna base -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M28,8 h8 q1,0 1,1 v2 h-10 v-2 q0,-1 1,-1 z"/>
+
+    <!-- Helmet body (white/light) -->
+    <path android:fillColor="#E8EDF8"
+        android:pathData="M12,11 h40 q7,0 7,7 v16 q0,7 -7,7 h-40 q-7,0 -7,-7 v-16 q0,-7 7,-7 z"/>
+
+    <!-- Helmet top orange band -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M26,11 h12 v4 h-12 z"/>
+
+    <!-- Helmet sheen -->
+    <path android:fillColor="#FFFFFF" android:fillAlpha="0.5"
+        android:pathData="M14,11 h16 q7,0 7,7 v4 q-10,-2 -24,-2 v-4 q0,-5 1,-5 z"/>
+
+    <!-- Visor (deep navy) -->
+    <path android:fillColor="#0D1860"
+        android:pathData="M16,19 h32 q3,0 3,3 v8 q0,2 -3,2 h-32 q-3,0 -3,-2 v-8 q0,-3 3,-3 z"/>
+
+    <!-- Visor glare -->
+    <path android:fillColor="#5D8BF4" android:fillAlpha="0.45"
+        android:pathData="M18,21 h12 v5 h-12 z"/>
+
+    <!-- Left ear -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M5,19 q-3,0 -3,3 v8 q0,3 3,3 h7 v-14 z"/>
+
+    <!-- Right ear -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M59,19 q3,0 3,3 v8 q0,3 -3,3 h-7 v-14 z"/>
+
+    <!-- Neck -->
+    <path android:fillColor="#B0B8CC"
+        android:pathData="M24,41 h16 q1,0 1,1 v3 q0,1 -1,1 h-16 q-1,0 -1,-1 v-3 q0,-1 1,-1 z"/>
+
+    <!-- Body (white suit) -->
+    <path android:fillColor="#E8EDF8"
+        android:pathData="M10,44 h44 q6,0 6,6 v10 q0,6 -6,6 h-44 q-6,0 -6,-6 v-10 q0,-6 6,-6 z"/>
+
+    <!-- Body blue stripe -->
+    <path android:fillColor="#1A237E"
+        android:pathData="M10,52 h44 v5 h-44 z"/>
+
+    <!-- Body orange bottom -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M10,57 h44 v3 q0,6 -6,6 h-32 q-6,0 -6,-6 z"/>
+
+    <!-- Chest badge frame (orange) -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M20,46 h24 q3,0 3,3 v10 q0,3 -3,3 h-24 q-3,0 -3,-3 v-10 q0,-3 3,-3 z"/>
+
+    <!-- Chest badge inner (navy) -->
+    <path android:fillColor="#0D1860"
+        android:pathData="M21,47 h22 q1,0 1,1 v8 q0,1 -1,1 h-22 q-1,0 -1,-1 v-8 q0,-1 1,-1 z"/>
+
+    <!-- Planner lines -->
+    <path android:fillColor="#FFFFFF"
+        android:pathData="M23,50 h18 v1.5 h-18 z M23,53 h12 v1.5 h-12 z"/>
+
+    <!-- Left shoulder -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M10,46 L3,52 L6,57 L13,51 Z"/>
+
+    <!-- Right shoulder -->
+    <path android:fillColor="#FF914D"
+        android:pathData="M54,46 L61,52 L58,57 L51,51 Z"/>
+
+</vector>

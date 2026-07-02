@@ -1,0 +1,20 @@
+I0616 10:08:34.349772    5288 load.go:31] Reloading schema and connectors...
+I0616 10:08:34.407995    5288 control.go:100] [projects/emulator/locations/emulator/services/uniklplanner 3f78] UpdateResources(): done
+Main schema: sources: schema\schema.gql [3145B] 
+Connector "default": sources: connector\mutations.gql [2559B] connector\queries.gql [2918B] 
+I0616 10:08:34.434870    5288 codegen.go:101] [connector "default" kotlinSdk] Generating sources into "C:\\Users\\mnuri\\AndroidStudioProjects\\UniKLPlanner\\app\\src\\main\\kotlin\\com\\example\\uniklplanner\\dataconnect"
+I0616 10:08:34.442393    5288 collector.go:107] schema extensions wrote into "C:\\Users\\mnuri\\AndroidStudioProjects\\UniKLPlanner\\dataconnect\\.dataconnect\\schema"
+Generated sources: main\relation.gql [31334B] main\query.gql [6301B] main\mutation.gql [17148B] main\implicit.gql [1338B] main\input.gql [61583B] prelude.gql [84995B] 
+I0616 10:08:34.451595    5288 collector.go:107] connector "default" kotlinSdk wrote into "C:\\Users\\mnuri\\AndroidStudioProjects\\UniKLPlanner\\app\\src\\main\\kotlin\\com\\example\\uniklplanner\\dataconnect"
+Generated sources: ChangeGroupMutation.kt [2084B] GetMyTasksQuery.kt [2064B] GetStudentProfileQuery.kt [2130B] UpdateEnrollmentStatusMutation.kt [3963B] DefaultConnectorEnums.kt [304B] GetMyEnrollmentsQuery.kt [2863B] ListAllGroupsQuery.kt [2166B] ToggleTaskCompletionMutation.kt [2015B] UpsertStudentProfileMutation.kt [2660B] DeleteTaskMutation.kt [1785B] GetCurrentSemesterCoursesQuery.kt [2596B] ListGroupsForCourseQuery.kt [2753B] DefaultConnectorKeys.kt [885B] DropCourseMutation.kt [1829B] EnrollCourseMutation.kt [3375B] ListAllCoursesQuery.kt [2041B] README.md [9007B] DefaultConnector.kt [16961B] AddStudyTaskMutation.kt [1864B] 
+I0616 10:08:34.451595    5288 load.go:109] Finished reloading
+I0616 10:08:34.453177    5288 dev.go:104] Listening on address (HTTP + gRPC): [::]:9399
+I0616 10:08:37.218581    5288 control.go:100] [projects/emulator/locations/emulator/services/uniklplanner 1993] UpdateResources(): done
+Main schema: sources: schema\schema.gql [3145B] 
+Connector "default": sources: connector\mutations.gql [2559B] connector\queries.gql [2918B] 
+I0616 10:08:37.231418    5288 configure_emulator.go:21] ConfigureEmulator successed
+Request: service_id: "uniklplanner"
+connection_string: "postgres://127.0.0.1:5433/fdcdb?sslmode=disable"
+database: "fdcdb"
+
+Response: 

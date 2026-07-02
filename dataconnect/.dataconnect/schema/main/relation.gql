@@ -1,0 +1,869 @@
+extend type Course {
+  """
+  ✨ List `Enrollment` objects in a one-to-many relationship (where `Enrollment`.`course` is this object).
+  """
+  enrollments_on_course(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Enrollment_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Enrollment_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Enrollment_Having
+  ): [Enrollment!]! @fdc_generated(from: "Enrollment.course", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `ScheduleGroup` objects in a one-to-many relationship (where `ScheduleGroup`.`course` is this object).
+  """
+  scheduleGroups_on_course(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: ScheduleGroup_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [ScheduleGroup_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: ScheduleGroup_Having
+  ): [ScheduleGroup!]! @fdc_generated(from: "ScheduleGroup.course", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Course", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Course` table.
+  """
+  _count: Int! @fdc_generated(from: "Course.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Course` table where the `category` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  category_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Course.category", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Course` table where the `code` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  code_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Course.code", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Course` table where the `credits` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  credits_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Course.credits", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Course` table where the `isOptional` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  isOptional_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Course.isOptional", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Course` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Course.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Course` table where the `prerequisite` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  prerequisite_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Course.prerequisite", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Course` table where the `semester` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  semester_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Course.semester", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Course` table where the `year` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  year_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Course.year", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `credits` field in the `Course` table.
+  """
+  credits_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Course.credits", purpose: QUERY_SUM)
+  """
+  ✨ Sum the `semester` field in the `Course` table.
+  """
+  semester_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Course.semester", purpose: QUERY_SUM)
+  """
+  ✨ Sum the `year` field in the `Course` table.
+  """
+  year_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Course.year", purpose: QUERY_SUM)
+  """
+  ✨ Average the `credits` field in the `Course` table.
+  """
+  credits_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Course.credits", purpose: QUERY_AVG)
+  """
+  ✨ Average the `semester` field in the `Course` table.
+  """
+  semester_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Course.semester", purpose: QUERY_AVG)
+  """
+  ✨ Average the `year` field in the `Course` table.
+  """
+  year_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Course.year", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `credits` field in the `Course` table.
+  """
+  credits_min: Int @fdc_generated(from: "Course.credits", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `semester` field in the `Course` table.
+  """
+  semester_min: Int @fdc_generated(from: "Course.semester", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `year` field in the `Course` table.
+  """
+  year_min: Int @fdc_generated(from: "Course.year", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `credits` field in the `Course` table.
+  """
+  credits_max: Int @fdc_generated(from: "Course.credits", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `semester` field in the `Course` table.
+  """
+  semester_max: Int @fdc_generated(from: "Course.semester", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `year` field in the `Course` table.
+  """
+  year_max: Int @fdc_generated(from: "Course.year", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Course.code", purpose: ENTITY_ID)
+}
+extend type Enrollment {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Enrollment", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Enrollment` table.
+  """
+  _count: Int! @fdc_generated(from: "Enrollment.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `courseCode` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  courseCode_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.courseCode", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `creditGained` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  creditGained_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.creditGained", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `enrolledAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  enrolledAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.enrolledAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `grade` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  grade_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.grade", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `groupId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  groupId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.groupId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `semesterTaken` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  semesterTaken_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.semesterTaken", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `status` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  status_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.status", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Enrollment` table where the `studentUid` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  studentUid_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Enrollment.studentUid", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `creditGained` field in the `Enrollment` table.
+  """
+  creditGained_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Enrollment.creditGained", purpose: QUERY_SUM)
+  """
+  ✨ Average the `creditGained` field in the `Enrollment` table.
+  """
+  creditGained_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Enrollment.creditGained", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `creditGained` field in the `Enrollment` table.
+  """
+  creditGained_min: Int @fdc_generated(from: "Enrollment.creditGained", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `enrolledAt` field in the `Enrollment` table.
+  """
+  enrolledAt_min: Timestamp @fdc_generated(from: "Enrollment.enrolledAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `creditGained` field in the `Enrollment` table.
+  """
+  creditGained_max: Int @fdc_generated(from: "Enrollment.creditGained", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `enrolledAt` field in the `Enrollment` table.
+  """
+  enrolledAt_max: Timestamp @fdc_generated(from: "Enrollment.enrolledAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Enrollment.id", purpose: ENTITY_ID)
+}
+extend type ScheduleGroup {
+  """
+  ✨ List `Enrollment` objects in a one-to-many relationship (where `Enrollment`.`group` is this object).
+  """
+  enrollments_on_group(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Enrollment_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Enrollment_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Enrollment_Having
+  ): [Enrollment!]! @fdc_generated(from: "Enrollment.group", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "ScheduleGroup", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table.
+  """
+  _count: Int! @fdc_generated(from: "ScheduleGroup.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `capacity` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  capacity_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.capacity", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `courseCode` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  courseCode_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.courseCode", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `day` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  day_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.day", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `endTime` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  endTime_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.endTime", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `enrolled` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  enrolled_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.enrolled", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `groupCode` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  groupCode_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.groupCode", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `lecturer` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  lecturer_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.lecturer", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `room` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  room_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.room", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `semesterOffered` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  semesterOffered_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.semesterOffered", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `ScheduleGroup` table where the `startTime` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  startTime_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "ScheduleGroup.startTime", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `capacity` field in the `ScheduleGroup` table.
+  """
+  capacity_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "ScheduleGroup.capacity", purpose: QUERY_SUM)
+  """
+  ✨ Sum the `enrolled` field in the `ScheduleGroup` table.
+  """
+  enrolled_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "ScheduleGroup.enrolled", purpose: QUERY_SUM)
+  """
+  ✨ Average the `capacity` field in the `ScheduleGroup` table.
+  """
+  capacity_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "ScheduleGroup.capacity", purpose: QUERY_AVG)
+  """
+  ✨ Average the `enrolled` field in the `ScheduleGroup` table.
+  """
+  enrolled_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "ScheduleGroup.enrolled", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `capacity` field in the `ScheduleGroup` table.
+  """
+  capacity_min: Int @fdc_generated(from: "ScheduleGroup.capacity", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `enrolled` field in the `ScheduleGroup` table.
+  """
+  enrolled_min: Int @fdc_generated(from: "ScheduleGroup.enrolled", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `capacity` field in the `ScheduleGroup` table.
+  """
+  capacity_max: Int @fdc_generated(from: "ScheduleGroup.capacity", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `enrolled` field in the `ScheduleGroup` table.
+  """
+  enrolled_max: Int @fdc_generated(from: "ScheduleGroup.enrolled", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "ScheduleGroup.id", purpose: ENTITY_ID)
+}
+extend type Student {
+  """
+  ✨ List `Enrollment` objects in a one-to-many relationship (where `Enrollment`.`student` is this object).
+  """
+  enrollments_on_student(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: Enrollment_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [Enrollment_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: Enrollment_Having
+  ): [Enrollment!]! @fdc_generated(from: "Enrollment.student", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  ✨ List `StudyTask` objects in a one-to-many relationship (where `StudyTask`.`student` is this object).
+  """
+  studyTasks_on_student(
+    """
+    Filter condition to narrow down the query results.
+    """
+    where: StudyTask_Filter
+
+    """
+    Order the query results by specific fields.
+    """
+    orderBy: [StudyTask_Order!]
+
+    """
+    Number of rows to skip before starting to return the results.
+    """
+    offset: Int
+
+    """
+    Maximum number of rows to return (defaults to 100 rows).
+    """
+    limit: Int = 100
+
+    """
+    Set to true to return distinct results.
+    """
+    distinct: Boolean = false
+
+    """
+    Filter condition to apply to the groups of aggregate queries.
+    """
+    having: StudyTask_Having
+  ): [StudyTask!]! @fdc_generated(from: "StudyTask.student", purpose: QUERY_MULTIPLE_ONE_TO_MANY)
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "Student", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `Student` table.
+  """
+  _count: Int! @fdc_generated(from: "Student.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `academicAdvisor` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  academicAdvisor_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.academicAdvisor", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `currentSemester` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  currentSemester_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.currentSemester", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `email` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  email_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.email", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `institute` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  institute_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.institute", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `intake` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  intake_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.intake", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `name` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  name_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.name", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `programme` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  programme_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.programme", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `studentId` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  studentId_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.studentId", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `totalCreditsRequired` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  totalCreditsRequired_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.totalCreditsRequired", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `Student` table where the `uid` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  uid_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "Student.uid", purpose: QUERY_COUNT)
+  """
+  ✨ Sum the `currentSemester` field in the `Student` table.
+  """
+  currentSemester_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Student.currentSemester", purpose: QUERY_SUM)
+  """
+  ✨ Sum the `totalCreditsRequired` field in the `Student` table.
+  """
+  totalCreditsRequired_sum(
+    """
+    Set to true to sum the distinct values.
+    """
+    distinct: Boolean = false
+  ): Int @fdc_generated(from: "Student.totalCreditsRequired", purpose: QUERY_SUM)
+  """
+  ✨ Average the `currentSemester` field in the `Student` table.
+  """
+  currentSemester_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Student.currentSemester", purpose: QUERY_AVG)
+  """
+  ✨ Average the `totalCreditsRequired` field in the `Student` table.
+  """
+  totalCreditsRequired_avg(
+    """
+    Set to true to average the distinct values.
+    """
+    distinct: Boolean = false
+  ): Float @fdc_generated(from: "Student.totalCreditsRequired", purpose: QUERY_AVG)
+  """
+  ✨ Minimum of the `currentSemester` field in the `Student` table.
+  """
+  currentSemester_min: Int @fdc_generated(from: "Student.currentSemester", purpose: QUERY_MIN)
+  """
+  ✨ Minimum of the `totalCreditsRequired` field in the `Student` table.
+  """
+  totalCreditsRequired_min: Int @fdc_generated(from: "Student.totalCreditsRequired", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `currentSemester` field in the `Student` table.
+  """
+  currentSemester_max: Int @fdc_generated(from: "Student.currentSemester", purpose: QUERY_MAX)
+  """
+  ✨ Maximum of the `totalCreditsRequired` field in the `Student` table.
+  """
+  totalCreditsRequired_max: Int @fdc_generated(from: "Student.totalCreditsRequired", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "Student.uid", purpose: ENTITY_ID)
+}
+extend type StudyTask {
+  """
+  Implicit metadata field that cannot be written. It provides extra information about query results.
+  """
+  _metadata: _Metadata @fdc_generated(from: "StudyTask", purpose: METADATA_FIELD)
+  """
+  ✨ Count the number of rows in the `StudyTask` table.
+  """
+  _count: Int! @fdc_generated(from: "StudyTask.", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StudyTask` table where the `courseName` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  courseName_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StudyTask.courseName", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StudyTask` table where the `createdAt` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  createdAt_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StudyTask.createdAt", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StudyTask` table where the `dueDate` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  dueDate_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StudyTask.dueDate", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StudyTask` table where the `id` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  id_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StudyTask.id", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StudyTask` table where the `isCompleted` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  isCompleted_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StudyTask.isCompleted", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StudyTask` table where the `studentUid` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  studentUid_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StudyTask.studentUid", purpose: QUERY_COUNT)
+  """
+  ✨ Count the number of rows in the `StudyTask` table where the `title` field is non-null. Pass the `distinct` argument to instead count the number of distinct values.
+  """
+  title_count(
+    """
+    Set to true to count the number of distinct values.
+    """
+    distinct: Boolean = false
+  ): Int! @fdc_generated(from: "StudyTask.title", purpose: QUERY_COUNT)
+  """
+  ✨ Minimum of the `createdAt` field in the `StudyTask` table.
+  """
+  createdAt_min: Timestamp @fdc_generated(from: "StudyTask.createdAt", purpose: QUERY_MIN)
+  """
+  ✨ Maximum of the `createdAt` field in the `StudyTask` table.
+  """
+  createdAt_max: Timestamp @fdc_generated(from: "StudyTask.createdAt", purpose: QUERY_MAX)
+  """
+  A generated field that is used for caching results in SDKs.
+  """
+  _id: ID! @fdc_generated(from: "StudyTask.id", purpose: ENTITY_ID)
+}

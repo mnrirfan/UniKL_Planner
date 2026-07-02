@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\mnuri\\\\AndroidStudioProjects\\\\UniKLPlanner\" -Directory)",
+      "Bash(Select-Object Name)",
+      "PowerShell(.\\\\gradlew.bat :app:compileDebugKotlin -q 2>&1 | Select-Object -Last 40)",
+      "PowerShell($paths = @\\(\"$env:LOCALAPPDATA\\\\Programs\\\\Android Studio\\\\jbr\",\"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\",\"$env:ProgramFiles\\\\Android\\\\Android Studio\\\\jbr\",\"${env:ProgramFiles\\(x86\\)}\\\\Android\\\\Android Studio\\\\jbr\"\\); foreach \\($p in $paths\\) { if \\(Test-Path \"$p\\\\bin\\\\java.exe\"\\) { Write-Output \"FOUND: $p\" } })",
+      "PowerShell($env:JAVA_HOME = \"C:\\\\Program Files\\\\Android\\\\Android Studio\\\\jbr\"; .\\\\gradlew.bat :app:compileDebugKotlin -q 2>&1 | Select-Object -Last 40)"
+    ]
+  }
+}

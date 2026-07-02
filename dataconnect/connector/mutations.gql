@@ -1,0 +1,80 @@
+# ============================================================
+# MUTATIONS — what the app WRITES to the database
+# Each mutation auto-generates a Kotlin function in the SDK
+# ============================================================
+
+# Enroll the current student in a course (with chosen group)
+mutation EnrollCourse($courseCode: String!, $groupId: UUID) @auth(level: PUBLIC) {
+  enrollment_insert(data: {
+    student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }
+    course: { code: $courseCode }
+    group: { id: $groupId }
+    status: "ST"
+  })
+}
+
+# Drop a course (delete the enrollment row)
+mutation DropCourse($enrollmentId: UUID!) @auth(level: PUBLIC) {
+  enrollment_delete(id: $enrollmentId)
+}
+
+# Update an enrollment's status
+# Used when cycling PENDING → ST → PASS in Course Management
+mutation UpdateEnrollmentStatus($enrollmentId: UUID!, $newStatus: String!, $credits: Int) @auth(level: PUBLIC) {
+  enrollment_update(id: $enrollmentId, data: {
+    status: $newStatus
+    creditGained: $credits
+  })
+}
+
+# Change which group a student is enrolled in (G1 ↔ G2)
+mutation ChangeGroup($enrollmentId: UUID!, $newGroupId: UUID!) @auth(level: PUBLIC) {
+  enrollment_update(id: $enrollmentId, data: { group: { id: $newGroupId } })
+}
+
+# Add a new study task
+mutation AddStudyTask($title: String!, $courseName: String!, $dueDate: String!) @auth(level: PUBLIC) {
+  studyTask_insert(data: {
+    student: { uid_expr: "auth.uid" }
+    title: $title
+    courseName: $courseName
+    dueDate: $dueDate
+    isCompleted: false
+  })
+}
+
+# Toggle a task's completion status
+mutation ToggleTaskCompletion($taskId: UUID!, $isCompleted: Boolean!) @auth(level: PUBLIC) {
+  studyTask_update(id: $taskId, data: { isCompleted: $isCompleted })
+}
+
+# Delete a task
+mutation DeleteTask($taskId: UUID!) @auth(level: PUBLIC) {
+  studyTask_delete(id: $taskId)
+}
+
+# Create or update student profile (called on first login)
+mutation UpsertStudentProfile(
+  $studentId: String!,
+  $name: String!,
+  $programme: String!,
+  $intake: String!,
+  $currentSemester: Int!,
+  $totalCreditsRequired: Int!,
+  $institute: String!,
+  $academicAdvisor: String!,
+  $email: String!
+) @auth(level: PUBLIC) {
+  student_upsert(data: {
+    uid_expr: "auth.uid"
+    studentId: $studentId
+    name: $name
+    programme: $programme
+    intake: $intake
+    currentSemester: $currentSemester
+    totalCreditsRequired: $totalCreditsRequired
+    institute: $institute
+    academicAdvisor: $academicAdvisor
+    email: $email
+  })
+}

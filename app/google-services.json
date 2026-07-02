@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "946641511628",
+    "project_id": "unikl-planner-login-info",
+    "storage_bucket": "unikl-planner-login-info.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:946641511628:android:25ecafe54831ed1d314e69",
+        "android_client_info": {
+          "package_name": "com.example.uniklplanner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "946641511628-i65vnoj1u9qklmkjj7b9adcobaseimup.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBi6HcX2yoiOhKYkoOHbB0eKdHGspLoQdE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "946641511628-i65vnoj1u9qklmkjj7b9adcobaseimup.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

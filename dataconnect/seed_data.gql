@@ -1,0 +1,334 @@
+# ============================================================
+# SEED DATA — populates the database with your curriculum
+# Click "Run (Local)" above each mutation in order
+# ============================================================
+
+# Step 1: Create your student profile
+mutation SeedStudent @auth(level: PUBLIC) {
+  student_insert(data: {
+    uid: "vgA7UHMhF0boinz6BiUoKhCOYY93"
+    studentId: "50222224092"
+    name: "MUHAMMAD NUR IRFAN BIN RAZILY"
+    programme: "Bachelor of Engineering Technology (Automation and Robotics) with Honours F22"
+    intake: "Sem 2023/2024-2"
+    currentSemester: 9
+    totalCreditsRequired: 140
+    institute: "UniKL Malaysia France Institute (MFI)"
+    academicAdvisor: "YUSMAN BIN YUSOF"
+    email: "irfan.razily@s.unikl.edu.my"
+  })
+}
+
+# Step 2: Insert all 62 courses from the study plan
+mutation SeedAllCourses @auth(level: PUBLIC) {
+  # Year 1, Semester 1
+  c1:  course_insert(data: { code: "FAB11203", name: "Automation Technology",                  credits: 3, category: "CORE", year: 1, semester: 1 })
+  c2:  course_insert(data: { code: "FIB20103", name: "Occupational Safety & Health",           credits: 3, category: "CORE", year: 1, semester: 1 })
+  c3:  course_insert(data: { code: "FKB11102", name: "Calculus 1",                             credits: 2, category: "CORE", year: 1, semester: 1 })
+  c4:  course_insert(data: { code: "FVB21602", name: "Engineering Ethics",                     credits: 2, category: "CORE", year: 1, semester: 1 })
+  c5:  course_insert(data: { code: "MPU3192",  name: "Philosophy and Current Issues",          credits: 2, category: "MPU",  year: 1, semester: 1 })
+  c6:  course_insert(data: { code: "WEB10302", name: "Fundamental English",                    credits: 2, category: "UCS",  year: 1, semester: 1 })
+  c7:  course_insert(data: { code: "WEB20202", name: "Professional English 1",                 credits: 2, category: "UCS",  year: 1, semester: 1 })
+
+  # Year 1, Semester 2
+  c8:  course_insert(data: { code: "FEB10203", name: "Electrical Principles",                  credits: 3, category: "CORE", year: 1, semester: 2 })
+  c9:  course_insert(data: { code: "FFB12503", name: "Engineering Drawing",                    credits: 3, category: "CORE", year: 1, semester: 2 })
+  c10: course_insert(data: { code: "FGB10303", name: "Workshop Practice",                      credits: 3, category: "CORE", year: 1, semester: 2 })
+  c11: course_insert(data: { code: "FMB11103", name: "Statics and Dynamics",                   credits: 3, category: "CORE", year: 1, semester: 2 })
+  c12: course_insert(data: { code: "FSB20103", name: "Basic Programming",                      credits: 3, category: "CORE", year: 1, semester: 2 })
+  c13: course_insert(data: { code: "MPU3142",  name: "Bahasa Melayu Komunikasi 2",             credits: 2, category: "MPU",  year: 1, semester: 2 })
+  c14: course_insert(data: { code: "MPU3182",  name: "Penghayatan Etika dan Peradaban",        credits: 2, category: "MPU",  year: 1, semester: 2 })
+
+  # MPU34xx — pass ONE only (all optional)
+  c15: course_insert(data: { code: "MPU34102", name: "Integriti & Anti-Rasuah 2",              credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c16: course_insert(data: { code: "MPU34112", name: "Huffaz Professional 2",                  credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c17: course_insert(data: { code: "MPU3412",  name: "Career Guidance 2",                      credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c18: course_insert(data: { code: "MPU3422",  name: "Community Service 2",                    credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c19: course_insert(data: { code: "MPU3432",  name: "Culture 2",                              credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c20: course_insert(data: { code: "MPU3442",  name: "Rakan Masjid 2",                         credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c21: course_insert(data: { code: "MPU3452",  name: "Siswa Siswi Bomba & Penyelamat 2",       credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c22: course_insert(data: { code: "MPU3462",  name: "Kor Siswa Pertahanan Awam 2",            credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c23: course_insert(data: { code: "MPU3472",  name: "Sports Management 2",                    credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c24: course_insert(data: { code: "MPU3482",  name: "Personal Financial Management 2",        credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+  c25: course_insert(data: { code: "MPU3492",  name: "Askar Wataniah",                         credits: 2, category: "MPU", year: 1, semester: 2, isOptional: true })
+
+  # Year 2, Semester 3
+  c26: course_insert(data: { code: "FKB22203", name: "Calculus 2",                             credits: 3, category: "CORE", year: 2, semester: 3, prerequisite: "FKB11102" })
+  c27: course_insert(data: { code: "FLB20103", name: "Analog and Digital Electronics",         credits: 3, category: "CORE", year: 2, semester: 3 })
+  c28: course_insert(data: { code: "FMB20403", name: "Computer Aided Design & Eng 1",          credits: 3, category: "CORE", year: 2, semester: 3 })
+  c29: course_insert(data: { code: "FTB12303", name: "Material Science",                       credits: 3, category: "CORE", year: 2, semester: 3 })
+  c30: course_insert(data: { code: "MPU3332",  name: "Isu-Isu Kontemporari Muslim",            credits: 2, category: "MPU",  year: 2, semester: 3 })
+  c31: course_insert(data: { code: "MPU3342",  name: "Culture & Lifestyle in Malaysia 2",      credits: 2, category: "MPU",  year: 2, semester: 3 })
+  c32: course_insert(data: { code: "WBB20103", name: "Technopreneurship",                      credits: 3, category: "CORE", year: 2, semester: 3 })
+  c33: course_insert(data: { code: "WEB20302", name: "Professional English 2",                 credits: 2, category: "UCS",  year: 2, semester: 3, prerequisite: "WEB20202" })
+
+  # Year 2, Semester 4
+  c34: course_insert(data: { code: "FAB30104", name: "Mechatronics System Design",             credits: 4, category: "CORE", year: 2, semester: 4, prerequisite: "FEB10203" })
+  c35: course_insert(data: { code: "FEB20303", name: "Electrical Machines",                    credits: 3, category: "CORE", year: 2, semester: 4, prerequisite: "FEB10203" })
+  c36: course_insert(data: { code: "FIB36103", name: "Project Management",                     credits: 3, category: "CORE", year: 2, semester: 4 })
+  c37: course_insert(data: { code: "FKB22303", name: "Statistics for Engineering Tech",        credits: 3, category: "CORE", year: 2, semester: 4, prerequisite: "FKB22203" })
+  c38: course_insert(data: { code: "FLB30603", name: "Electronic Design",                      credits: 3, category: "CORE", year: 2, semester: 4, prerequisite: "FLB20103" })
+  c39: course_insert(data: { code: "FMB20503", name: "Mechanics and Machine Design",           credits: 3, category: "CORE", year: 2, semester: 4, prerequisite: "FMB11103" })
+
+  # Year 3, Semester 5
+  c40: course_insert(data: { code: "FAB20204", name: "Programmable Logic Controller",          credits: 4, category: "CORE", year: 3, semester: 5 })
+  c41: course_insert(data: { code: "FAB20703", name: "Robotics",                               credits: 3, category: "CORE", year: 3, semester: 5 })
+  c42: course_insert(data: { code: "FAB35803", name: "Control Systems",                        credits: 3, category: "CORE", year: 3, semester: 5 })
+  c43: course_insert(data: { code: "FIB36403", name: "Production & Operation Management",      credits: 3, category: "CORE", year: 3, semester: 5 })
+  c44: course_insert(data: { code: "FSB30103", name: "Embedded System Technology",             credits: 3, category: "CORE", year: 3, semester: 5, prerequisite: "FSB20103" })
+  c45: course_insert(data: { code: "WFD10101", name: "French 1",                               credits: 1, category: "UCS",  year: 3, semester: 5 })
+
+  # Year 3, Semester 6
+  c46: course_insert(data: { code: "FIB30203", name: "Computer Integrated Manufacturing",      credits: 3, category: "CORE", year: 3, semester: 6 })
+  c47: course_insert(data: { code: "FLB35203", name: "Power Electronics and Drives",           credits: 3, category: "CORE", year: 3, semester: 6, prerequisite: "FLB20103" })
+  c48: course_insert(data: { code: "FPB49804", name: "Final Year Project 1",                   credits: 4, category: "FYP",  year: 3, semester: 6 })
+  c49: course_insert(data: { code: "FSB40103", name: "Internet of Things & Data Analytics",    credits: 3, category: "CORE", year: 3, semester: 6, prerequisite: "FSB20103" })
+  c50: course_insert(data: { code: "WFD10201", name: "French 2",                               credits: 1, category: "UCS",  year: 3, semester: 6, prerequisite: "WFD10101" })
+
+  # Year 4, Semester 7
+  c51: course_insert(data: { code: "FAB30303", name: "Mobile Robotics",                        credits: 3, category: "CORE", year: 4, semester: 7, prerequisite: "FAB20703" })
+  c52: course_insert(data: { code: "FIB40104", name: "Flexible Manufacturing System",          credits: 4, category: "CORE", year: 4, semester: 7, prerequisite: "FIB30203" })
+  c53: course_insert(data: { code: "FPB49906", name: "Final Year Project 2",                   credits: 6, category: "FYP",  year: 4, semester: 7, prerequisite: "FPB49804" })
+  c54: course_insert(data: { code: "MPU3242",  name: "Innovation Management",                  credits: 2, category: "MPU",  year: 4, semester: 7 })
+
+  # Year 4, Semester 8
+  c55: course_insert(data: { code: "WIB41012", name: "Industrial Training",                    credits: 12, category: "INTRA", year: 4, semester: 8 })
+
+  # Electives
+  c56: course_insert(data: { code: "FIB42003", name: "Computer Aided Production Mgmt",         credits: 3, category: "ELECTIVE", year: 4, semester: 7, isOptional: true, prerequisite: "FIB36103" })
+  c57: course_insert(data: { code: "FIB42103", name: "Work Study",                             credits: 3, category: "ELECTIVE", year: 4, semester: 7, isOptional: true, prerequisite: "FIB36103" })
+  c58: course_insert(data: { code: "FMB30703", name: "Computer Aided Design 2",                credits: 3, category: "ELECTIVE", year: 4, semester: 7, isOptional: true, prerequisite: "FMB20503" })
+  c59: course_insert(data: { code: "FSB32003", name: "Artificial Intelligence",                credits: 3, category: "ELECTIVE", year: 4, semester: 7, isOptional: true })
+  c60: course_insert(data: { code: "FSB32103", name: "Machine Vision Technology",              credits: 3, category: "ELECTIVE", year: 4, semester: 7, isOptional: true })
+  c61: course_insert(data: { code: "FSB32203", name: "Real Time System",                       credits: 3, category: "ELECTIVE", year: 4, semester: 7, isOptional: true })
+
+  c62: course_insert(data: { code: "MPU3212",  name: "Bahasa Kebangsaan A",                    credits: 2, category: "MPU", year: 4, semester: 8, isOptional: true })
+}
+
+# Step 3: Add schedule groups for the courses you're currently taking
+# ============================================================
+# STEP 1 — Run this FIRST to wipe all existing schedule groups
+# ============================================================
+mutation DeleteAllScheduleGroups @auth(level: PUBLIC) {
+  scheduleGroup_deleteMany(all: true)
+}
+
+# ============================================================
+# STEP 2 — Then run this to seed all 156 groups (2-3 per course)
+# Group code scheme: [DayLetter][Slot]
+#   M=Mon T=Tue W=Wed R=Thu F=Fri | 1=08:00 2=10:00 3=14:00 4=16:00
+# ============================================================
+mutation SeedScheduleGroups @auth(level: PUBLIC) {
+  g1: scheduleGroup_insert(data: { course: { code: "FAB11203" }, groupCode: "T4", day: "Tuesday", startTime: "16:00", endTime: "18:00", room: "BLK C-101", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g2: scheduleGroup_insert(data: { course: { code: "FAB11203" }, groupCode: "M1", day: "Monday", startTime: "08:00", endTime: "10:00", room: "BLK B-201", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g3: scheduleGroup_insert(data: { course: { code: "FIB20103" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "BLK B-201", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g4: scheduleGroup_insert(data: { course: { code: "FIB20103" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK D-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g5: scheduleGroup_insert(data: { course: { code: "FIB20103" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-1", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g6: scheduleGroup_insert(data: { course: { code: "FKB11102" }, groupCode: "W4", day: "Wednesday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-2", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g7: scheduleGroup_insert(data: { course: { code: "FKB11102" }, groupCode: "R3", day: "Thursday", startTime: "14:00", endTime: "16:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g8: scheduleGroup_insert(data: { course: { code: "FVB21602" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "BLK B-201", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g9: scheduleGroup_insert(data: { course: { code: "FVB21602" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK D-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g10: scheduleGroup_insert(data: { course: { code: "FVB21602" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-1", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g11: scheduleGroup_insert(data: { course: { code: "MPU3192" }, groupCode: "R1", day: "Thursday", startTime: "08:00", endTime: "10:00", room: "BLK A-401", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g12: scheduleGroup_insert(data: { course: { code: "MPU3192" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "BLK A-301", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g13: scheduleGroup_insert(data: { course: { code: "MPU3192" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "BLK B-301", lecturer: "Dr. Hassan Mohamed", semesterOffered: "MARCH 2026" })
+  g14: scheduleGroup_insert(data: { course: { code: "WEB10302" }, groupCode: "T4", day: "Tuesday", startTime: "16:00", endTime: "18:00", room: "BLK A-401", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g15: scheduleGroup_insert(data: { course: { code: "WEB10302" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "BLK D-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g16: scheduleGroup_insert(data: { course: { code: "WEB20202" }, groupCode: "T4", day: "Tuesday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-2", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g17: scheduleGroup_insert(data: { course: { code: "WEB20202" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g18: scheduleGroup_insert(data: { course: { code: "FEB10203" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "BLK B-301", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g19: scheduleGroup_insert(data: { course: { code: "FEB10203" }, groupCode: "F3", day: "Friday", startTime: "14:00", endTime: "16:00", room: "BLK A-401", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g20: scheduleGroup_insert(data: { course: { code: "FEB10203" }, groupCode: "M3", day: "Monday", startTime: "14:00", endTime: "16:00", room: "BLK C-101", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g21: scheduleGroup_insert(data: { course: { code: "FFB12503" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "BLK A-301", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g22: scheduleGroup_insert(data: { course: { code: "FFB12503" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK C-101", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g23: scheduleGroup_insert(data: { course: { code: "FFB12503" }, groupCode: "W4", day: "Wednesday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g24: scheduleGroup_insert(data: { course: { code: "FGB10303" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "BLK A-401", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g25: scheduleGroup_insert(data: { course: { code: "FGB10303" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK D-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g26: scheduleGroup_insert(data: { course: { code: "FMB11103" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "LAB-ROBO", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g27: scheduleGroup_insert(data: { course: { code: "FMB11103" }, groupCode: "M4", day: "Monday", startTime: "16:00", endTime: "18:00", room: "LAB-ROBO", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g28: scheduleGroup_insert(data: { course: { code: "FMB11103" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "BLK D-401", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g29: scheduleGroup_insert(data: { course: { code: "FSB20103" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "BLK B-201", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g30: scheduleGroup_insert(data: { course: { code: "FSB20103" }, groupCode: "T2", day: "Tuesday", startTime: "10:00", endTime: "12:00", room: "BLK D-401", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g31: scheduleGroup_insert(data: { course: { code: "FSB20103" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g32: scheduleGroup_insert(data: { course: { code: "MPU3142" }, groupCode: "R1", day: "Thursday", startTime: "08:00", endTime: "10:00", room: "LAB-ROBO", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g33: scheduleGroup_insert(data: { course: { code: "MPU3142" }, groupCode: "T1", day: "Tuesday", startTime: "08:00", endTime: "10:00", room: "BLK C-101", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g34: scheduleGroup_insert(data: { course: { code: "MPU3182" }, groupCode: "W3", day: "Wednesday", startTime: "14:00", endTime: "16:00", room: "LAB-MFI-1", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g35: scheduleGroup_insert(data: { course: { code: "MPU3182" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "BLK B-301", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g36: scheduleGroup_insert(data: { course: { code: "MPU34102" }, groupCode: "W1", day: "Wednesday", startTime: "08:00", endTime: "10:00", room: "BLK A-301", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g37: scheduleGroup_insert(data: { course: { code: "MPU34102" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "BLK A-301", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g38: scheduleGroup_insert(data: { course: { code: "MPU34112" }, groupCode: "R3", day: "Thursday", startTime: "14:00", endTime: "16:00", room: "BLK C-101", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g39: scheduleGroup_insert(data: { course: { code: "MPU34112" }, groupCode: "R1", day: "Thursday", startTime: "08:00", endTime: "10:00", room: "LAB-MFI-1", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g40: scheduleGroup_insert(data: { course: { code: "MPU34112" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "BLK A-401", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g41: scheduleGroup_insert(data: { course: { code: "MPU3412" }, groupCode: "R3", day: "Thursday", startTime: "14:00", endTime: "16:00", room: "LAB-ROBO", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g42: scheduleGroup_insert(data: { course: { code: "MPU3412" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK C-101", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g43: scheduleGroup_insert(data: { course: { code: "MPU3422" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "BLK B-301", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g44: scheduleGroup_insert(data: { course: { code: "MPU3422" }, groupCode: "T2", day: "Tuesday", startTime: "10:00", endTime: "12:00", room: "BLK A-401", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g45: scheduleGroup_insert(data: { course: { code: "MPU3422" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "BLK A-401", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g46: scheduleGroup_insert(data: { course: { code: "MPU3432" }, groupCode: "M4", day: "Monday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-2", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g47: scheduleGroup_insert(data: { course: { code: "MPU3432" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g48: scheduleGroup_insert(data: { course: { code: "MPU3442" }, groupCode: "T2", day: "Tuesday", startTime: "10:00", endTime: "12:00", room: "BLK B-201", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g49: scheduleGroup_insert(data: { course: { code: "MPU3442" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "BLK D-401", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g50: scheduleGroup_insert(data: { course: { code: "MPU3442" }, groupCode: "W3", day: "Wednesday", startTime: "14:00", endTime: "16:00", room: "BLK B-301", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g51: scheduleGroup_insert(data: { course: { code: "MPU3452" }, groupCode: "W1", day: "Wednesday", startTime: "08:00", endTime: "10:00", room: "LAB-MFI-1", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g52: scheduleGroup_insert(data: { course: { code: "MPU3452" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "BLK B-301", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g53: scheduleGroup_insert(data: { course: { code: "MPU3462" }, groupCode: "R3", day: "Thursday", startTime: "14:00", endTime: "16:00", room: "BLK A-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g54: scheduleGroup_insert(data: { course: { code: "MPU3462" }, groupCode: "R1", day: "Thursday", startTime: "08:00", endTime: "10:00", room: "BLK A-301", lecturer: "Dr. Hassan Mohamed", semesterOffered: "MARCH 2026" })
+  g55: scheduleGroup_insert(data: { course: { code: "MPU3462" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g56: scheduleGroup_insert(data: { course: { code: "MPU3472" }, groupCode: "F1", day: "Friday", startTime: "08:00", endTime: "10:00", room: "BLK D-401", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g57: scheduleGroup_insert(data: { course: { code: "MPU3472" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-2", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g58: scheduleGroup_insert(data: { course: { code: "MPU3482" }, groupCode: "M4", day: "Monday", startTime: "16:00", endTime: "18:00", room: "BLK A-301", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g59: scheduleGroup_insert(data: { course: { code: "MPU3482" }, groupCode: "F1", day: "Friday", startTime: "08:00", endTime: "10:00", room: "BLK C-101", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g60: scheduleGroup_insert(data: { course: { code: "MPU3482" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "BLK A-301", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g61: scheduleGroup_insert(data: { course: { code: "MPU3492" }, groupCode: "T2", day: "Tuesday", startTime: "10:00", endTime: "12:00", room: "BLK C-101", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g62: scheduleGroup_insert(data: { course: { code: "MPU3492" }, groupCode: "M1", day: "Monday", startTime: "08:00", endTime: "10:00", room: "BLK B-201", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g63: scheduleGroup_insert(data: { course: { code: "FKB22203" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK B-201", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g64: scheduleGroup_insert(data: { course: { code: "FKB22203" }, groupCode: "M4", day: "Monday", startTime: "16:00", endTime: "18:00", room: "BLK A-401", lecturer: "Dr. Hassan Mohamed", semesterOffered: "MARCH 2026" })
+  g65: scheduleGroup_insert(data: { course: { code: "FLB20103" }, groupCode: "T4", day: "Tuesday", startTime: "16:00", endTime: "18:00", room: "BLK A-401", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g66: scheduleGroup_insert(data: { course: { code: "FLB20103" }, groupCode: "M4", day: "Monday", startTime: "16:00", endTime: "18:00", room: "BLK D-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g67: scheduleGroup_insert(data: { course: { code: "FMB20403" }, groupCode: "M1", day: "Monday", startTime: "08:00", endTime: "10:00", room: "BLK D-401", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g68: scheduleGroup_insert(data: { course: { code: "FMB20403" }, groupCode: "W1", day: "Wednesday", startTime: "08:00", endTime: "10:00", room: "LAB-MFI-2", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g69: scheduleGroup_insert(data: { course: { code: "FTB12303" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g70: scheduleGroup_insert(data: { course: { code: "FTB12303" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-2", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g71: scheduleGroup_insert(data: { course: { code: "FTB12303" }, groupCode: "M1", day: "Monday", startTime: "08:00", endTime: "10:00", room: "LAB-ROBO", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g72: scheduleGroup_insert(data: { course: { code: "MPU3332" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "BLK A-301", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g73: scheduleGroup_insert(data: { course: { code: "MPU3332" }, groupCode: "T2", day: "Tuesday", startTime: "10:00", endTime: "12:00", room: "BLK C-101", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g74: scheduleGroup_insert(data: { course: { code: "MPU3332" }, groupCode: "W4", day: "Wednesday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g75: scheduleGroup_insert(data: { course: { code: "MPU3342" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "BLK C-101", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g76: scheduleGroup_insert(data: { course: { code: "MPU3342" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "BLK B-201", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g77: scheduleGroup_insert(data: { course: { code: "WBB20103" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "BLK B-201", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g78: scheduleGroup_insert(data: { course: { code: "WBB20103" }, groupCode: "T1", day: "Tuesday", startTime: "08:00", endTime: "10:00", room: "BLK D-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g79: scheduleGroup_insert(data: { course: { code: "WBB20103" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "BLK A-301", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g80: scheduleGroup_insert(data: { course: { code: "WEB20302" }, groupCode: "W4", day: "Wednesday", startTime: "16:00", endTime: "18:00", room: "BLK D-401", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g81: scheduleGroup_insert(data: { course: { code: "WEB20302" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "BLK B-201", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g82: scheduleGroup_insert(data: { course: { code: "WEB20302" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "BLK C-101", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g83: scheduleGroup_insert(data: { course: { code: "FAB30104" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "BLK D-401", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g84: scheduleGroup_insert(data: { course: { code: "FAB30104" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "BLK B-201", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g85: scheduleGroup_insert(data: { course: { code: "FAB30104" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-2", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g86: scheduleGroup_insert(data: { course: { code: "FEB20303" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "BLK D-401", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g87: scheduleGroup_insert(data: { course: { code: "FEB20303" }, groupCode: "F3", day: "Friday", startTime: "14:00", endTime: "16:00", room: "BLK B-201", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g88: scheduleGroup_insert(data: { course: { code: "FEB20303" }, groupCode: "M4", day: "Monday", startTime: "16:00", endTime: "18:00", room: "BLK C-101", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g89: scheduleGroup_insert(data: { course: { code: "FIB36103" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK B-301", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g90: scheduleGroup_insert(data: { course: { code: "FIB36103" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-1", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g91: scheduleGroup_insert(data: { course: { code: "FKB22303" }, groupCode: "W4", day: "Wednesday", startTime: "16:00", endTime: "18:00", room: "BLK A-301", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g92: scheduleGroup_insert(data: { course: { code: "FKB22303" }, groupCode: "M4", day: "Monday", startTime: "16:00", endTime: "18:00", room: "BLK C-101", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g93: scheduleGroup_insert(data: { course: { code: "FKB22303" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-1", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g94: scheduleGroup_insert(data: { course: { code: "FLB30603" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "BLK C-101", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g95: scheduleGroup_insert(data: { course: { code: "FLB30603" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "BLK B-201", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g96: scheduleGroup_insert(data: { course: { code: "FMB20503" }, groupCode: "T2", day: "Tuesday", startTime: "10:00", endTime: "12:00", room: "BLK B-301", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g97: scheduleGroup_insert(data: { course: { code: "FMB20503" }, groupCode: "W1", day: "Wednesday", startTime: "08:00", endTime: "10:00", room: "BLK A-401", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g98: scheduleGroup_insert(data: { course: { code: "FMB20503" }, groupCode: "T1", day: "Tuesday", startTime: "08:00", endTime: "10:00", room: "BLK A-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g99: scheduleGroup_insert(data: { course: { code: "FAB20204" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "LAB-ROBO", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g100: scheduleGroup_insert(data: { course: { code: "FAB20204" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "LAB-ROBO", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g101: scheduleGroup_insert(data: { course: { code: "FAB20204" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "LAB-ROBO", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g102: scheduleGroup_insert(data: { course: { code: "FAB20703" }, groupCode: "T4", day: "Tuesday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g103: scheduleGroup_insert(data: { course: { code: "FAB20703" }, groupCode: "W3", day: "Wednesday", startTime: "14:00", endTime: "16:00", room: "LAB-MFI-2", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g104: scheduleGroup_insert(data: { course: { code: "FAB20703" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "LAB-ROBO", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g105: scheduleGroup_insert(data: { course: { code: "FAB35803" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "BLK C-101", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g106: scheduleGroup_insert(data: { course: { code: "FAB35803" }, groupCode: "T2", day: "Tuesday", startTime: "10:00", endTime: "12:00", room: "BLK B-201", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g107: scheduleGroup_insert(data: { course: { code: "FIB36403" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g108: scheduleGroup_insert(data: { course: { code: "FIB36403" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "LAB-MFI-2", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g109: scheduleGroup_insert(data: { course: { code: "FIB36403" }, groupCode: "W4", day: "Wednesday", startTime: "16:00", endTime: "18:00", room: "BLK B-201", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g110: scheduleGroup_insert(data: { course: { code: "FSB30103" }, groupCode: "M3", day: "Monday", startTime: "14:00", endTime: "16:00", room: "LAB-MFI-1", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g111: scheduleGroup_insert(data: { course: { code: "FSB30103" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "BLK B-301", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g112: scheduleGroup_insert(data: { course: { code: "WFD10101" }, groupCode: "T4", day: "Tuesday", startTime: "16:00", endTime: "18:00", room: "BLK A-401", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g113: scheduleGroup_insert(data: { course: { code: "WFD10101" }, groupCode: "M1", day: "Monday", startTime: "08:00", endTime: "10:00", room: "BLK D-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g114: scheduleGroup_insert(data: { course: { code: "FIB30203" }, groupCode: "T1", day: "Tuesday", startTime: "08:00", endTime: "10:00", room: "BLK C-101", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g115: scheduleGroup_insert(data: { course: { code: "FIB30203" }, groupCode: "W4", day: "Wednesday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g116: scheduleGroup_insert(data: { course: { code: "FIB30203" }, groupCode: "F3", day: "Friday", startTime: "14:00", endTime: "16:00", room: "LAB-MFI-2", lecturer: "Dr. Hassan Mohamed", semesterOffered: "MARCH 2026" })
+  g117: scheduleGroup_insert(data: { course: { code: "FLB35203" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g118: scheduleGroup_insert(data: { course: { code: "FLB35203" }, groupCode: "R3", day: "Thursday", startTime: "14:00", endTime: "16:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g119: scheduleGroup_insert(data: { course: { code: "FLB35203" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "LAB-ROBO", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g120: scheduleGroup_insert(data: { course: { code: "FPB49804" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "LAB-MFI-2", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g121: scheduleGroup_insert(data: { course: { code: "FPB49804" }, groupCode: "W1", day: "Wednesday", startTime: "08:00", endTime: "10:00", room: "BLK B-301", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g122: scheduleGroup_insert(data: { course: { code: "FPB49804" }, groupCode: "F1", day: "Friday", startTime: "08:00", endTime: "10:00", room: "LAB-ROBO", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g123: scheduleGroup_insert(data: { course: { code: "FSB40103" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK A-401", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g124: scheduleGroup_insert(data: { course: { code: "FSB40103" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "BLK A-301", lecturer: "Dr. Hassan Mohamed", semesterOffered: "MARCH 2026" })
+  g125: scheduleGroup_insert(data: { course: { code: "FSB40103" }, groupCode: "F1", day: "Friday", startTime: "08:00", endTime: "10:00", room: "LAB-MFI-1", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g126: scheduleGroup_insert(data: { course: { code: "WFD10201" }, groupCode: "W4", day: "Wednesday", startTime: "16:00", endTime: "18:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g127: scheduleGroup_insert(data: { course: { code: "WFD10201" }, groupCode: "M1", day: "Monday", startTime: "08:00", endTime: "10:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g128: scheduleGroup_insert(data: { course: { code: "WFD10201" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g129: scheduleGroup_insert(data: { course: { code: "FAB30303" }, groupCode: "R3", day: "Thursday", startTime: "14:00", endTime: "16:00", room: "BLK A-301", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g130: scheduleGroup_insert(data: { course: { code: "FAB30303" }, groupCode: "T2", day: "Tuesday", startTime: "10:00", endTime: "12:00", room: "BLK A-301", lecturer: "Dr. Hassan Mohamed", semesterOffered: "MARCH 2026" })
+  g131: scheduleGroup_insert(data: { course: { code: "FIB40104" }, groupCode: "W1", day: "Wednesday", startTime: "08:00", endTime: "10:00", room: "BLK B-201", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g132: scheduleGroup_insert(data: { course: { code: "FIB40104" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "BLK A-401", lecturer: "Dr. Yusman Yusof", semesterOffered: "MARCH 2026" })
+  g133: scheduleGroup_insert(data: { course: { code: "FPB49906" }, groupCode: "F4", day: "Friday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-2", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g134: scheduleGroup_insert(data: { course: { code: "FPB49906" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "LAB-ROBO", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g135: scheduleGroup_insert(data: { course: { code: "MPU3242" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-1", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g136: scheduleGroup_insert(data: { course: { code: "MPU3242" }, groupCode: "T1", day: "Tuesday", startTime: "08:00", endTime: "10:00", room: "LAB-MFI-2", lecturer: "Dr. Azman Hashim", semesterOffered: "MARCH 2026" })
+  g137: scheduleGroup_insert(data: { course: { code: "MPU3242" }, groupCode: "W2", day: "Wednesday", startTime: "10:00", endTime: "12:00", room: "BLK B-201", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g138: scheduleGroup_insert(data: { course: { code: "WIB41012" }, groupCode: "F3", day: "Friday", startTime: "14:00", endTime: "16:00", room: "LAB-ROBO", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g139: scheduleGroup_insert(data: { course: { code: "WIB41012" }, groupCode: "M4", day: "Monday", startTime: "16:00", endTime: "18:00", room: "BLK C-101", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g140: scheduleGroup_insert(data: { course: { code: "FIB42003" }, groupCode: "W1", day: "Wednesday", startTime: "08:00", endTime: "10:00", room: "BLK D-401", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g141: scheduleGroup_insert(data: { course: { code: "FIB42003" }, groupCode: "R3", day: "Thursday", startTime: "14:00", endTime: "16:00", room: "LAB-MFI-2", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g142: scheduleGroup_insert(data: { course: { code: "FIB42103" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "BLK B-301", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g143: scheduleGroup_insert(data: { course: { code: "FIB42103" }, groupCode: "R3", day: "Thursday", startTime: "14:00", endTime: "16:00", room: "BLK A-401", lecturer: "Dr. Ariff Othman", semesterOffered: "MARCH 2026" })
+  g144: scheduleGroup_insert(data: { course: { code: "FIB42103" }, groupCode: "M3", day: "Monday", startTime: "14:00", endTime: "16:00", room: "BLK C-101", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g145: scheduleGroup_insert(data: { course: { code: "FMB30703" }, groupCode: "F3", day: "Friday", startTime: "14:00", endTime: "16:00", room: "BLK B-301", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g146: scheduleGroup_insert(data: { course: { code: "FMB30703" }, groupCode: "F2", day: "Friday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-1", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+  g147: scheduleGroup_insert(data: { course: { code: "FSB32003" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK A-401", lecturer: "Dr. Lim Wei Ming", semesterOffered: "MARCH 2026" })
+  g148: scheduleGroup_insert(data: { course: { code: "FSB32003" }, groupCode: "W1", day: "Wednesday", startTime: "08:00", endTime: "10:00", room: "BLK A-301", lecturer: "Dr. Hassan Mohamed", semesterOffered: "MARCH 2026" })
+  g149: scheduleGroup_insert(data: { course: { code: "FSB32003" }, groupCode: "F1", day: "Friday", startTime: "08:00", endTime: "10:00", room: "BLK B-301", lecturer: "Dr. Zaki Abdullah", semesterOffered: "MARCH 2026" })
+  g150: scheduleGroup_insert(data: { course: { code: "FSB32103" }, groupCode: "W3", day: "Wednesday", startTime: "14:00", endTime: "16:00", room: "LAB-ROBO", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g151: scheduleGroup_insert(data: { course: { code: "FSB32103" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "BLK C-101", lecturer: "Dr. Siti Aminah Rahman", semesterOffered: "MARCH 2026" })
+  g152: scheduleGroup_insert(data: { course: { code: "FSB32203" }, groupCode: "R4", day: "Thursday", startTime: "16:00", endTime: "18:00", room: "LAB-MFI-1", lecturer: "Dr. Farah Hanani", semesterOffered: "MARCH 2026" })
+  g153: scheduleGroup_insert(data: { course: { code: "FSB32203" }, groupCode: "R2", day: "Thursday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-2", lecturer: "En. Faiz Rosli", semesterOffered: "MARCH 2026" })
+  g154: scheduleGroup_insert(data: { course: { code: "FSB32203" }, groupCode: "M1", day: "Monday", startTime: "08:00", endTime: "10:00", room: "BLK D-401", lecturer: "Dr. Aishah Ibrahim", semesterOffered: "MARCH 2026" })
+  g155: scheduleGroup_insert(data: { course: { code: "MPU3212" }, groupCode: "T3", day: "Tuesday", startTime: "14:00", endTime: "16:00", room: "BLK B-301", lecturer: "Ir. Khairul Anwar", semesterOffered: "MARCH 2026" })
+  g156: scheduleGroup_insert(data: { course: { code: "MPU3212" }, groupCode: "M2", day: "Monday", startTime: "10:00", endTime: "12:00", room: "LAB-MFI-1", lecturer: "Prof. Madya Dr. Norazlina", semesterOffered: "MARCH 2026" })
+}
+
+# Step 4: Seed enrollment statuses (matches your study plan exactly)
+mutation SeedEnrollmentsCT @auth(level: PUBLIC) {
+  e1:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FAB11203" }, status: "CT", creditGained: 3 })
+  e2:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FIB20103" }, status: "CT", creditGained: 3 })
+  e3:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FKB11102" }, status: "CT", creditGained: 2 })
+  e4:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FVB21602" }, status: "CT", creditGained: 2 })
+  e5:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "WEB20202" }, status: "CT", creditGained: 2 })
+  e6:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FFB12503" }, status: "CT", creditGained: 3 })
+  e7:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FGB10303" }, status: "CT", creditGained: 3 })
+  e8:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FMB11103" }, status: "CT", creditGained: 3 })
+  e9:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FSB20103" }, status: "CT", creditGained: 3 })
+  e10: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FMB20403" }, status: "CT", creditGained: 3 })
+  e11: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FTB12303" }, status: "CT", creditGained: 3 })
+  e12: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "WBB20103" }, status: "CT", creditGained: 3 })
+  e13: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FAB30104" }, status: "CT", creditGained: 4 })
+  e14: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FIB36103" }, status: "CT", creditGained: 3 })
+  e15: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FAB20703" }, status: "CT", creditGained: 3 })
+  e16: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FAB35803" }, status: "CT", creditGained: 3 })
+}
+
+mutation SeedEnrollmentsPASS @auth(level: PUBLIC) {
+  p1:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "MPU3192" },  status: "PASS", creditGained: 2, semesterTaken: "MARCH 2024" })
+  p2:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "WEB10302" }, status: "PASS", creditGained: 2, semesterTaken: "MARCH 2024" })
+  p3:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FEB10203" }, status: "PASS", creditGained: 3, semesterTaken: "MARCH 2024" })
+  p4:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "MPU3182" },  status: "PASS", creditGained: 2, semesterTaken: "OCTOBER 2024" })
+  p5:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "MPU3422" },  status: "PASS", creditGained: 2, semesterTaken: "OCTOBER 2024" })
+  p6:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FKB22203" }, status: "PASS", creditGained: 3, semesterTaken: "OCTOBER 2024" })
+  p7:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FLB20103" }, status: "PASS", creditGained: 3, semesterTaken: "OCTOBER 2024" })
+  p8:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "MPU3332" },  status: "PASS", creditGained: 2, semesterTaken: "OCTOBER 2024" })
+  p9:  enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "WEB20302" }, status: "PASS", creditGained: 2, semesterTaken: "OCTOBER 2024" })
+  p10: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FEB20303" }, status: "PASS", creditGained: 3, semesterTaken: "JULY 2025" })
+  p11: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FKB22303" }, status: "PASS", creditGained: 3, semesterTaken: "MARCH 2025" })
+  p12: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FLB30603" }, status: "PASS", creditGained: 3, semesterTaken: "OCTOBER 2024" })
+  p13: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FMB20503" }, status: "PASS", creditGained: 3, semesterTaken: "MARCH 2025" })
+  p14: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FAB20204" }, status: "PASS", creditGained: 4, semesterTaken: "MARCH 2025" })
+  p15: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FIB36403" }, status: "PASS", creditGained: 3, semesterTaken: "MARCH 2024" })
+  p16: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FSB30103" }, status: "PASS", creditGained: 3, semesterTaken: "OCTOBER 2025" })
+  p17: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "WFD10101" }, status: "PASS", creditGained: 1, semesterTaken: "OCTOBER 2025" })
+  p18: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FIB30203" }, status: "PASS", creditGained: 3, semesterTaken: "OCTOBER 2025" })
+  p19: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FLB35203" }, status: "PASS", creditGained: 3, semesterTaken: "OCTOBER 2025" })
+  p20: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FPB49804" }, status: "PASS", creditGained: 4, semesterTaken: "OCTOBER 2024" })
+  p21: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FSB40103" }, status: "PASS", creditGained: 3, semesterTaken: "MARCH 2026" })
+  p22: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "WFD10201" }, status: "PASS", creditGained: 1, semesterTaken: "MARCH 2026" })
+  p23: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FIB42003" }, status: "PASS", creditGained: 3, semesterTaken: "MARCH 2024" })
+  p24: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FIB42103" }, status: "PASS", creditGained: 3, semesterTaken: "OCTOBER 2025" })
+}
+
+# Currently taking (ST) — sem 9
+mutation SeedEnrollmentsST @auth(level: PUBLIC) {
+  s1: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FAB30303" }, status: "ST", semesterTaken: "MARCH 2026" })
+  s2: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FIB40104" }, status: "ST", semesterTaken: "MARCH 2026" })
+  s3: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "FPB49906" }, status: "ST", semesterTaken: "MARCH 2026" })
+  s4: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "MPU3242" },  status: "ST", semesterTaken: "MARCH 2026" })
+  s5: enrollment_insert(data: { student: { uid: "vgA7UHMhF0boinz6BiUoKhCOYY93" }, course: { code: "WIB41012" }, status: "ST", semesterTaken: "OCTOBER 2026" })
+}
